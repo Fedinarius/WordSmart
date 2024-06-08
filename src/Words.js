@@ -42,10 +42,12 @@ const Words = () => {
     };
 
     const startReview = () => {
-        setShowCards(true);
-        setCurrentCardIndex(0);
-        setShowDefinition(false);
-        setShuffledWords(words.sort(() => 0.5 - Math.random()));
+        if (words.length > 0) {
+            setShowCards(true);
+            setCurrentCardIndex(0);
+            setShowDefinition(false);
+            setShuffledWords(words.sort(() => 0.5 - Math.random()));
+        }
     };
 
     const nextCard = () => {
@@ -63,7 +65,6 @@ const Words = () => {
         return (
             <Container className="app-container position-relative">
                 <div className="card-container">
-                    <Button className="button-small exit-button" variant="success" onClick={() => setShowCards(false)}>Выйти</Button>
                     <h1>{showDefinition ? currentWord.definition : currentWord.word}</h1>
                     <div className="card-buttons">
                         <Button className="button-small" variant="success" onClick={previousCard}>Предыдущая карточка</Button>
@@ -78,8 +79,10 @@ const Words = () => {
     return (
         <Container className="app-container position-relative">
             <div className="words-container">
-                <Button className="button-small exit-button" variant="success" onClick={() => navigate('/')}>Выйти из папки</Button>
-                <h1>{folderName}</h1>
+                <div className="d-flex justify-content-between align-items-center">
+                    <h1>{folderName}</h1>
+                    <Button className="button-small" variant="success" onClick={() => navigate('/')}>Выйти из папки</Button>
+                </div>
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
@@ -114,7 +117,7 @@ const Words = () => {
                     </Col>
                 </Row>
                 <Row className="mt-3">
-                    <Button className="button-small" variant="success" onClick={startReview}>Начать повторение</Button>
+                    <Button className="button-small" variant="success" onClick={startReview} disabled={words.length === 0}>Начать повторение</Button>
                 </Row>
             </div>
         </Container>

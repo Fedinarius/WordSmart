@@ -42,8 +42,8 @@ const App = () => {
                         <Row className="mb-3">
                             {displayedFolders.map((folderName, index) => (
                                 <Col key={index} xs={4} className="mb-3">
-                                    <div className="folder border p-2 text-center">
-                                        <span onClick={() => window.location.href = `/words?folder=${folderName}`}>{folderName}</span>
+                                    <div className="folder border p-2 text-center" onClick={() => window.location.href = `/words?folder=${folderName}`}>
+                                        <span>{folderName}</span>
                                     </div>
                                 </Col>
                             ))}
