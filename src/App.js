@@ -18,14 +18,17 @@ const App = () => {
     }, [folders]);
 
     const createFolder = () => {
-        if (newFolderName) {
+        if (newFolderName && !folders.includes(newFolderName)) {
             setFolders([...folders, newFolderName]);
             setNewFolderName('');
+        } else {
+            alert('Папка с таким именем уже существует или имя не задано.');
         }
     };
 
     const deleteFolder = (folderName) => {
         setFolders(folders.filter(folder => folder !== folderName));
+        document.getElementById('delete-folder-name').value = '';
     };
 
     const displayedFolders = folders.slice(

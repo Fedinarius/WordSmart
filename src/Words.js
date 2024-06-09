@@ -65,7 +65,8 @@ const Words = () => {
         return (
             <Container className="app-container position-relative">
                 <div className="card-container">
-                    <h1>{showDefinition ? currentWord.definition : currentWord.word}</h1>
+                    <Button className="button-small card-exit-button" variant="success" onClick={() => setShowCards(false)}>Выйти в папку</Button>
+                    <h1 className={showDefinition ? 'definition' : ''}>{showDefinition ? currentWord.definition : currentWord.word}</h1>
                     <div className="card-buttons">
                         <Button className="button-small" variant="success" onClick={previousCard}>Предыдущая карточка</Button>
                         <Button className="button-small" variant="success" onClick={() => setShowDefinition(!showDefinition)}>Посмотреть перевод</Button>

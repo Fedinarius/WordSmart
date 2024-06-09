@@ -99,6 +99,7 @@ input[type="text"] {
   margin-top: 20px;
   text-align: center;
   color: white;
+  position: relative;
 }
 
 .card-buttons {
@@ -106,7 +107,8 @@ input[type="text"] {
   justify-content: space-between;
   width: 100%;
   max-width: 600px;
-  margin-top: 20px;
+  position: absolute;
+  bottom: 20px;
 }
 
 .main-card {
@@ -133,6 +135,16 @@ input[type="text"] {
   right: 20px;
 }
 
+.card-exit-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 button {
   padding: 10px 20px;
+}
+
+.definition {
+  color: #ffcc00; 
 }
